@@ -133,6 +133,7 @@
     width: 100%;
     background-color: #1570ef;
     border-radius: 8px;
+    outline: none;
     border: 1px solid #1570ef;
     padding: 12px 20px;
     color: white;
@@ -141,6 +142,8 @@
     }
     &:focus {
       background-color: #1570ef;
+      border: 1px solid rgba(81, 203, 238, 1);
+      box-shadow: 0 0 10px rgba(81, 203, 238, 1);
     }
   }
 }

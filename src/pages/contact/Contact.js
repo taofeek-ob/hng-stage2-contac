@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FooterSection } from "../../components";
+
 import "./contact.scss";
-const Contact = () => {
+
+const Contact = ({ name, setUsername }) => {
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -11,6 +13,8 @@ const Contact = () => {
     message: "",
   });
   const navigate = useNavigate();
+
+  // const { name, handleUsername } = useData();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,6 +25,10 @@ const Contact = () => {
       setError(true);
       return;
     }
+
+    // let value = `${formData.firstName} ${formData.lastName}`;
+    // setUsername(value);
+    setUsername(`${formData.firstName} ${formData.lastName}`);
 
     navigate("/success");
   };
@@ -96,11 +104,11 @@ const Contact = () => {
             <div className="contact__form__terms ">
               <input type="checkbox" name="terms" id="" required />
               <span className="terms">
-                You agree to providing your data to Taofeek who may contact you.
+                You agree to providing your data to {name} who may contact you.
               </span>
             </div>
             <div className="contact__form__button">
-              <button id="btn_submit">Submit</button>
+              <button id="btn__submit">Submit</button>
             </div>
           </form>
         </main>

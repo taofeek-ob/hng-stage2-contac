@@ -4,16 +4,20 @@ import { FooterSection } from "../../components";
 import { runFireworks } from "../../lib/utils";
 import "./success.scss";
 
-const Success = () => {
+const Success = ({ username, name }) => {
   useEffect(() => {
     runFireworks();
   });
+
+  // const { name, username } = useData();
+
+  console.log(username);
   return (
     <div className="success__content">
       <main>
-        <h1>Thank You for Messaging</h1>
+        <h1>Dear {username}, thank you for messaging</h1>
 
-        <p>We will be in contact with you shortly</p>
+        <p>{name} will be in contact with you shortly</p>
 
         <Link to="/">
           {" "}
