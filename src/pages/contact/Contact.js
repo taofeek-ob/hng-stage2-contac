@@ -28,7 +28,7 @@ const Contact = ({ name, setUsername }) => {
 
     // let value = `${formData.firstName} ${formData.lastName}`;
     // setUsername(value);
-    setUsername(`${formData.firstName} ${formData.lastName}`);
+    setUsername(formData.firstName);
 
     navigate("/success");
   };
@@ -56,6 +56,9 @@ const Contact = ({ name, setUsername }) => {
                   onChange={handleChange}
                   required
                 />
+                <span className="error__text">
+                  Please enter your first name
+                </span>
               </div>
               <div className="wrapper">
                 <label for="lastName">Last name</label>
@@ -68,10 +71,11 @@ const Contact = ({ name, setUsername }) => {
                   value={formData.lastName}
                   onChange={handleChange}
                 />
+                <span className="error__text">Please enter your last name</span>
               </div>
             </div>
             <div className=" wrapper">
-              <label for="email">Last name</label>
+              <label for="email">Email</label>
 
               <input
                 type="email"
@@ -82,7 +86,11 @@ const Contact = ({ name, setUsername }) => {
                 onChange={handleChange}
                 required
               />
+              <span className="error__text">
+                Please enter a valid email address
+              </span>
             </div>
+
             <div className=" wrapper">
               <label for="message">Message </label>
 
@@ -95,11 +103,10 @@ const Contact = ({ name, setUsername }) => {
                   setFormData({ ...formData, [e.target.name]: e.target.value });
                   setError(false);
                 }}
+                required
               />
 
-              {error && (
-                <span className="error__text">Please enter a message</span>
-              )}
+              <span className="error__text">Please enter a message</span>
             </div>
             <div className="contact__form__terms ">
               <input type="checkbox" name="terms" id="" required />
