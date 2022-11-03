@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FooterSection } from "../../components";
 import "./contact.scss";
 const Contact = () => {
@@ -9,13 +10,19 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.message === "") setError(true);
+
+    if (formData.message === "") {
+      setError(true);
+      return;
+    }
+
+    navigate("/success");
   };
   return (
     <>
