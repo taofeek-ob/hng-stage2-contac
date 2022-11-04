@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FooterSection } from "../../components";
+
 import { runFireworks } from "../../lib/utils";
 import "./success.scss";
 
@@ -24,7 +24,6 @@ const Success = ({ username, name }) => {
           <button>Back to main Page</button>
         </Link>
       </main>
-      <FooterSection />
     </div>
   );
 };

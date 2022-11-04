@@ -24,7 +24,7 @@
   margin: 4rem auto 0;
   color: #344054;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 20px;
 
   div {
@@ -41,6 +41,12 @@
     width: 100%;
     outline: none;
     transition: all 0.3s ease-in-out;
+
+    & + .error__text {
+      display: none;
+      color: #f83f23;
+      font-weight: 400;
+    }
     &::placeholder {
       color: #667085;
       font-weight: 400;
@@ -69,7 +75,7 @@
     justify-content: space-between;
     gap: 24px;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       flex-direction: column;
     }
   }
@@ -80,13 +86,7 @@
     justify-content: space-between;
     gap: 6px;
 
-    .error__text {
-      display: none;
-      color: #f83f23;
-    }
-
     textarea {
-      outline: none;
       min-height: 9rem;
     }
   }
@@ -98,9 +98,8 @@
     font-size: 16px;
     font-weight: 400;
     color: #475467;
-    // border: 2px solid red;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       gap: 4px;
       align-items: flex-start;
     }
@@ -108,9 +107,9 @@
     input[type="checkbox"] {
       appearance: none;
       width: 25px;
-      //   max-width: 30px;
+
       height: 20px;
-      //   max-height: 20px;
+
       border-radius: 6px;
       border: 1px solid #d0d5dd;
       position: relative;

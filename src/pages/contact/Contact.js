@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FooterSection } from "../../components";
 
 import "./contact.scss";
 
 const Contact = ({ name, setUsername }) => {
-  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,20 +12,12 @@ const Contact = ({ name, setUsername }) => {
   });
   const navigate = useNavigate();
 
-  // const { name, handleUsername } = useData();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formData.message === "") {
-      setError(true);
-      return;
-    }
-
-    // let value = `${formData.firstName} ${formData.lastName}`;
-    // setUsername(value);
     setUsername(formData.firstName);
 
     navigate("/success");
@@ -46,7 +36,7 @@ const Contact = ({ name, setUsername }) => {
           <form className="contact__form__wrapper" onSubmit={handleSubmit}>
             <div className="contact__form__name">
               <div className="wrapper">
-                <label for="first__name">First name</label>
+                <label htmlFor="first__name">First name</label>
                 <input
                   type="text"
                   name="firstName"
@@ -61,7 +51,7 @@ const Contact = ({ name, setUsername }) => {
                 </span>
               </div>
               <div className="wrapper">
-                <label for="lastName">Last name</label>
+                <label htmlFor="lastName">Last name</label>
                 <input
                   type="text"
                   name="lastName"
@@ -75,7 +65,7 @@ const Contact = ({ name, setUsername }) => {
               </div>
             </div>
             <div className=" wrapper">
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
 
               <input
                 type="email"
@@ -92,17 +82,14 @@ const Contact = ({ name, setUsername }) => {
             </div>
 
             <div className=" wrapper">
-              <label for="message">Message </label>
+              <label htmlFor="message">Message </label>
 
               <textarea
                 name="message"
+                id="message"
                 placeholder="Send me a message and I'll reply you as soon as possible..."
-                className={error ? "error" : "normal"}
                 value={formData.message}
-                onChange={(e) => {
-                  setFormData({ ...formData, [e.target.name]: e.target.value });
-                  setError(false);
-                }}
+                onChange={handleChange}
                 required
               />
 
@@ -110,9 +97,9 @@ const Contact = ({ name, setUsername }) => {
             </div>
             <div className="contact__form__terms ">
               <input type="checkbox" name="terms" id="" required />
-              <span className="terms">
+              <label htmlFor="terms" className="terms">
                 You agree to providing your data to {name} who may contact you.
-              </span>
+              </label>
             </div>
             <div className="contact__form__button">
               <button id="btn__submit">Submit</button>
@@ -120,7 +107,6 @@ const Contact = ({ name, setUsername }) => {
           </form>
         </main>
       </div>
-      <FooterSection />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import { FooterSection } from "./components";
 import { Contact, Home, Success } from "./pages";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           />
         </Routes>
       </Router>
+      <FooterSection />
     </div>
   );
 }
