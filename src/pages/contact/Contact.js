@@ -102,7 +102,7 @@ const Contact = ({ name, setUsername }) => {
               </label>
             </div>
             <div className="contact__form__button">
-              <button id="btn__submit">Submit</button>
+              <button id="btn__submit">Send message</button>
             </div>
           </form>
         </main>
