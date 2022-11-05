@@ -47,31 +47,31 @@
       color: #f83f23;
       font-weight: 400;
     }
+
     &::placeholder {
       color: #667085;
       font-weight: 400;
     }
 
     &:focus:invalid {
-      margin: 5px 1px 3px 0px;
-      border: 1px solid rgba(248, 150, 135, 1);
-      box-shadow: 0 0 10px rgba(248, 150, 135, 1);
+      border: 1px solid #f89687;
+      box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #ffd3cc;
 
       & + .error__text {
-        display: inline;
+        display: block;
       }
     }
 
     &:focus:valid {
-      margin: 5px 1px 3px 0px;
-      border: 1px solid rgba(81, 203, 238, 1);
-      box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+      border: 1px solid #84caff;
+
+      box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #d1e9ff;
     }
   }
 
   .contact__form__name {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 24px;
 
